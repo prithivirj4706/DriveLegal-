@@ -11,9 +11,13 @@ class Settings(BaseSettings):
     
     # Redis Configuration
     REDIS_URL: str = "redis://localhost:6379/0"
+    CACHE_TTL_SHORT: int = 900       # 15 mins (for dynamic RAG results)
+    CACHE_TTL_MEDIUM: int = 3600     # 1 hour (for fines lookup)
+    CACHE_TTL_LONG: int = 86400      # 24 hours (for static jurisdiction/violations)
     
     # Security
     SECRET_KEY: str
+    MASTER_API_KEY: str = "drivelegal-secret-dev-key"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 15
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
     
